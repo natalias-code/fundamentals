@@ -1,11 +1,11 @@
 
 
 class Quiz():
-    qa = {}
-    score = 0
 
     def __init__(self, qa):
-        self.qa = qa 
+        self.qa = qa
+        self.correct_answers = set()
+        self.incorrect_answers = set()
 
     def answer_questions(self):
 
@@ -14,6 +14,14 @@ class Quiz():
             
             if answer == self.qa[k]:
                 print("correct")
+                self.correct_answers.add(answer)
+                print(self.correct_answers)
+                counter = len(self.correct_answers)
+                print(f"congratulations you got {counter} right!")
+            else:
+                self.incorrect_answers.add(answer)
+                counter = len(self.incorrect_answers)
+                print(f"sorry you got {counter} wrong!")
 
     def verifyAge(self,age):
         if age >= 18:
